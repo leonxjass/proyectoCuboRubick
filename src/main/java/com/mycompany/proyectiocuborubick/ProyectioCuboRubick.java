@@ -48,7 +48,34 @@ public class ProyectioCuboRubick {
         ImprimeCara(C4);
     }
     
-    //public static void rotDer
+    public static void rotDerC5() {
+    // Guardar los valores originales antes de realizar la rotación
+    t = C5[1][3];
+    C5[1][3] = C5[3][3];
+    C5[3][3] = C5[3][1];
+    C5[3][1] = C5[1][1];
+    C5[1][1] = t;
+
+    t = C5[2][3];
+    C5[2][3] = C5[3][2];
+    C5[3][2] = C5[2][1];
+    C5[2][1] = C5[1][2];
+    C5[1][2] = t;
+    }
+    
+    public static void rotIzqC5() {
+    t = C5[1][1];
+    C5[1][1] = C5[3][1];
+    C5[3][1] = C5[3][3];
+    C5[3][3] = C5[1][3];
+    C5[1][3] = t;
+
+    t = C5[1][2];
+    C5[1][2] = C5[2][1];
+    C5[2][1] = C5[3][2];
+    C5[3][2] = C5[2][3];
+    C5[2][3] = t;
+    }
     
     public static void rotDerC6(){
         t = C6[1][1];
@@ -70,12 +97,12 @@ public class ProyectioCuboRubick {
         C6[1][3] = C6[3][3];
         C6[3][3] = C6[3][1];
         C6[3][1] = t;
-        
-        t = C6[2][1];
-        C6[2][1] = C6[1][2];
+
+        t = C6[1][2];
         C6[1][2] = C6[2][3];
         C6[2][3] = C6[3][2];
-        C6[3][2] = t;
+        C6[3][2] = C6[2][1];
+        C6[2][1] = t;
     }
     
     public static void lineA1Up(){

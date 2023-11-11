@@ -8,6 +8,7 @@ import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C1;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C2;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C3;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C4;
+import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C5;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C6;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.imprimeCubo;
 import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.rotDerC6;
@@ -28,42 +29,60 @@ public class FormCubo extends javax.swing.JFrame {
     public static int contadorClicks=0;
     public static int t,t2;
     
-    public void rotDerC6(){
+    public void rotDerC6() {
+        // Rotación de las esquinas
         t = C6[1][1];
-        C6[1][3] = C6[1][1];
         C6[1][1] = C6[3][1];
         C6[3][1] = C6[3][3];
-        C6[3][3] = t;
-        
+        C6[3][3] = C6[1][3];
+        C6[1][3] = t;   
+
+        // Rotación de los bordes
         t = C6[1][2];
         C6[1][2] = C6[2][1];
         C6[2][1] = C6[3][2];
         C6[3][2] = C6[2][3];
         C6[2][3] = t;
-    }
+}
     
-    public void rotIzqC6(){
+    public void rotIzqC5() {
+        t = C5[1][1];
+        C5[1][1] = C5[3][1];
+        C5[3][1] = C5[3][3];
+        C5[3][3] = C5[1][3];
+        C5[1][3] = t;
+
+        t = C5[1][2];
+        C5[1][2] = C5[2][1];
+        C5[2][1] = C5[3][2];
+        C5[3][2] = C5[2][3];
+        C5[2][3] = t;
+        }
+    
+    public void rotIzqC6(){        
         t = C6[1][1];
         C6[1][1] = C6[1][3];
         C6[1][3] = C6[3][3];
         C6[3][3] = C6[3][1];
         C6[3][1] = t;
-        
-        t = C6[2][1];
-        C6[2][1] = C6[1][2];
+
+        t = C6[1][2];
         C6[1][2] = C6[2][3];
         C6[2][3] = C6[3][2];
-        C6[3][2] = t;
+        C6[3][2] = C6[2][1];
+        C6[2][1] = t;
     }
     
     public void lineA1Up(){
-        for(int i=0; i<=3;i++){
+        for(int i=1; i<=3;i++){
         t = C1[i][1];
         C1[i][1] = C2[i][1];
         C2[i][1] = C3[i][1];
         C3[i][1] = C4[i][1];
         C4[i][1] = t;
         }
+        
+        rotIzqC5();
         
 //        t = C1[2][1];
 //        C1[2][1] = C2[2][1];
@@ -103,27 +122,19 @@ public class FormCubo extends javax.swing.JFrame {
     }
     
     public void lineA3Up(){        
-        for(int i=0; i<=3;i++){
-            t=C1[i][3];
-            C1[i][3]=C2[i][3];
-            C2[i][3]=C3[i][3];
-            C3[i][3]=C4[i][3];
-            C4[i][3]=t;
-        }
+        t = C6[1][1];
+        C6[1][3] = C6[1][1];
+        C6[1][1] = C6[3][1];
+        C6[3][1] = C6[3][3];
+        C6[3][3] = t;
         
-//        t=C1[2][3];
-//        C1[2][3]=C2[2][3];
-//        C2[2][3]=C3[2][3];
-//        C3[2][3]=C4[2][3];
-//        C4[2][3]=t;
-//        
-//        t=C1[3][3];
-//        C1[3][3]=C2[3][3];
-//        C2[3][3]=C3[3][3];
-//        C3[3][3]=C4[3][3];
-//        C4[3][3]=t;
-        rotDerC6();
+        t = C6[1][2];
+        C6[1][2] = C6[2][1];
+        C6[2][1] = C6[3][2];
+        C6[3][2] = C6[2][3];
+        C6[2][3] = t;
         etiquetasOn();
+        rotDerC6();
     }
     
     public void lineB1Dwn(){
@@ -170,7 +181,7 @@ public class FormCubo extends javax.swing.JFrame {
     }
     
     public void lineB3Dwn(){
-        for(int k=0; k<=3;k++){
+        for(int k=1; k<=3;k++){
             t = C4[k][3];
             C4[k][3] = C3[k][3];
             C3[k][3] = C2[k][3];
