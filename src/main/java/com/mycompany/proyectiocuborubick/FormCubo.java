@@ -1,49 +1,234 @@
-/*
+/* Anderson Jassiel Leon Zelaya 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.proyectiocuborubick;
 
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C1;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C2;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C3;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C4;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C5;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C6;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.imprimeCubo;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.rotDerC6;
-import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.t;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C1;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C2;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C3;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C4;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C5;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.C6;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.imprimeCubo;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.rotDerC6;
+//import static com.mycompany.proyectiocuborubick.ProyectioCuboRubick.t;
+
+import java.awt.Color;
 
 /**
  *
  * @author leonj
  */
 public class FormCubo extends javax.swing.JFrame {
+    //variables publicas utiles
+    public static int contadorClicks=0;
+    public static int contadorClicksColores=0;
+    public static int t;
     
+    //Matrices de colores
     public static int C1[][] = {{0, 0, 0, 0}, {0, 11, 12, 13}, {0, 14, 15, 16}, {0, 17, 18, 19}};
     public static int C2[][] = {{0, 0, 0, 0}, {0, 21, 22, 23}, {0, 24, 25, 26}, {0, 27, 28, 29}};
     public static int C3[][] = {{0, 0, 0, 0}, {0, 31, 32, 33}, {0, 34, 35, 36}, {0, 37, 38, 39}};
     public static int C4[][] = {{0, 0, 0, 0}, {0, 41, 42, 43}, {0, 44, 45, 46}, {0, 47, 48, 49}};
     public static int C5[][] = {{0, 0, 0, 0}, {0, 51, 52, 53}, {0, 54, 55, 56}, {0, 57, 58, 59}};
     public static int C6[][] = {{0, 0, 0, 0}, {0, 61, 62, 63}, {0, 64, 65, 66}, {0, 67, 68, 69}};
-    public static int contadorClicks=0;
-    public static int t,t2;
     
-    public void rotDerC6() {
-        // Rotación de las esquinas
-        t = C6[1][1];
-        C6[1][1] = C6[3][1];
-        C6[3][1] = C6[3][3];
-        C6[3][3] = C6[1][3];
-        C6[1][3] = t;   
+    //creamos una matriz que maneje colores
+    public static Color Rojo =      Color.red;
+    public static Color Amarilla =  Color.yellow;
+    public static Color Naranja =   Color.orange;
+    public static Color Blanco =    Color.white;
+    public static Color Verde =     Color.green;
+    public static Color Azul =      Color.cyan;
+     
+    public static Color COL1[][] = {{Rojo, Rojo, Rojo, Rojo}, {Rojo, Rojo, Rojo, Rojo},{Rojo, Rojo, Rojo, Rojo},{Rojo, Rojo, Rojo, Rojo}};
+    public static Color COL2[][] = {{Amarilla, Amarilla, Amarilla, Amarilla},{Amarilla, Amarilla, Amarilla, Amarilla},{Amarilla, Amarilla, Amarilla, Amarilla},{Amarilla, Amarilla, Amarilla, Amarilla}};
+    public static Color COL3[][] = {{Naranja, Naranja, Naranja, Naranja},{Naranja, Naranja, Naranja, Naranja},{Naranja, Naranja, Naranja, Naranja},{Naranja, Naranja, Naranja, Naranja}};
+    public static Color COL4[][] = {{Blanco, Blanco, Blanco, Blanco},{Blanco, Blanco, Blanco, Blanco},{Blanco, Blanco, Blanco, Blanco},{Blanco, Blanco, Blanco, Blanco}};
+    public static Color COL5[][] = {{Verde, Verde, Verde, Verde},{Verde, Verde, Verde, Verde},{Verde, Verde, Verde, Verde},{Verde, Verde, Verde, Verde}};
+    public static Color COL6[][] = {{Azul, Azul, Azul, Azul},{Azul, Azul, Azul, Azul},{Azul, Azul, Azul, Azul},{Azul, Azul, Azul, Azul}};
+    
+    //Acciones de matrices y colores
+    
+    public void ColoresOnC1(){
+       txtC1_11.setBackground(COL1[1][1]);
+       txtC1_12.setBackground(COL1[1][2]);
+       txtC1_13.setBackground(COL1[1][3]);
+       txtC1_21.setBackground(COL1[2][1]);
+       txtC1_22.setBackground(COL1[2][2]);
+       txtC1_23.setBackground(COL1[2][3]);
+       txtC1_31.setBackground(COL1[3][1]);
+       txtC1_32.setBackground(COL1[3][2]);
+       txtC1_33.setBackground(COL1[3][3]);
+    }
+    
+    public void ColoresOFFC1(){
+       txtC1_11.setBackground(Blanco);
+       txtC1_12.setBackground(Blanco);
+       txtC1_13.setBackground(Blanco);
+       txtC1_21.setBackground(Blanco);
+       txtC1_22.setBackground(Blanco);
+       txtC1_23.setBackground(Blanco);
+       txtC1_31.setBackground(Blanco);
+       txtC1_32.setBackground(Blanco);
+       txtC1_33.setBackground(Blanco);
+    }
+    
+    public void ColoresOnC2(){
+       txtC2_11.setBackground(COL2[1][1]);
+       txtC2_12.setBackground(COL2[1][2]);
+       txtC2_13.setBackground(COL2[1][3]);
+       txtC2_21.setBackground(COL2[2][1]);
+       txtC2_22.setBackground(COL2[2][2]);
+       txtC2_23.setBackground(COL2[2][3]);
+       txtC2_31.setBackground(COL2[3][1]);
+       txtC2_32.setBackground(COL2[3][2]);
+       txtC2_33.setBackground(COL2[3][3]);
+    }
+    
+    public void ColoresOFFC2(){
+       txtC2_11.setBackground(Blanco);
+       txtC2_12.setBackground(Blanco);
+       txtC2_13.setBackground(Blanco);
+       txtC2_21.setBackground(Blanco);
+       txtC2_22.setBackground(Blanco);
+       txtC2_23.setBackground(Blanco);
+       txtC2_31.setBackground(Blanco);
+       txtC2_32.setBackground(Blanco);
+       txtC2_33.setBackground(Blanco);
+    }
+    
+    public void ColoresOnC3(){
+       txtC3_11.setBackground(COL3[1][1]);
+       txtC3_12.setBackground(COL3[1][2]);
+       txtC3_13.setBackground(COL3[1][3]);
+       txtC3_21.setBackground(COL3[2][1]);
+       txtC3_22.setBackground(COL3[2][2]);
+       txtC3_23.setBackground(COL3[2][3]);
+       txtC3_31.setBackground(COL3[3][1]);
+       txtC3_32.setBackground(COL3[3][2]);
+       txtC3_33.setBackground(COL3[3][3]);
+    }
+    
+    public void ColoresOFFC3(){
+       txtC3_11.setBackground(Blanco);
+       txtC3_12.setBackground(Blanco);
+       txtC3_13.setBackground(Blanco);
+       txtC3_21.setBackground(Blanco);
+       txtC3_22.setBackground(Blanco);
+       txtC3_23.setBackground(Blanco);
+       txtC3_31.setBackground(Blanco);
+       txtC3_32.setBackground(Blanco);
+       txtC3_33.setBackground(Blanco);;
+    }
+    
+    public void ColoresOnC4(){
+       txtC4_11.setBackground(COL4[1][1]);
+       txtC4_12.setBackground(COL4[1][2]);
+       txtC4_13.setBackground(COL4[1][3]);
+       txtC4_21.setBackground(COL4[2][1]);
+       txtC4_22.setBackground(COL4[2][2]);
+       txtC4_23.setBackground(COL4[2][3]);
+       txtC4_31.setBackground(COL4[3][1]);
+       txtC4_32.setBackground(COL4[3][2]);
+       txtC4_33.setBackground(COL4[3][3]);
+    }
+    
+    public void ColoresOFFC4(){
+       txtC4_11.setBackground(Blanco);
+       txtC4_12.setBackground(Blanco);
+       txtC4_13.setBackground(Blanco);
+       txtC4_21.setBackground(Blanco);
+       txtC4_22.setBackground(Blanco);
+       txtC4_23.setBackground(Blanco);
+       txtC4_31.setBackground(Blanco);
+       txtC4_32.setBackground(Blanco);
+       txtC4_33.setBackground(Blanco);
+    }
+    
+    public void ColoresOnC5(){
+       txtC5_11.setBackground(COL5[1][1]);
+       txtC5_12.setBackground(COL5[1][2]);
+       txtC5_13.setBackground(COL5[1][3]);
+       txtC5_21.setBackground(COL5[2][1]);
+       txtC5_22.setBackground(COL5[2][2]);
+       txtC5_23.setBackground(COL5[2][3]);
+       txtC5_31.setBackground(COL5[3][1]);
+       txtC5_32.setBackground(COL5[3][2]);
+       txtC5_33.setBackground(COL5[3][3]);
+    }
+    
+    public void ColoresOFFC5(){
+       txtC5_11.setBackground(Blanco);
+       txtC5_12.setBackground(Blanco);
+       txtC5_13.setBackground(Blanco);
+       txtC5_21.setBackground(Blanco);
+       txtC5_22.setBackground(Blanco);
+       txtC5_23.setBackground(Blanco);
+       txtC5_31.setBackground(Blanco);
+       txtC5_32.setBackground(Blanco);
+       txtC5_33.setBackground(Blanco);
+    }
+    
+    public void ColoresOnC6(){
+       txtC6_11.setBackground(COL6[1][1]);
+       txtC6_12.setBackground(COL6[1][2]);
+       txtC6_13.setBackground(COL6[1][3]);
+       txtC6_21.setBackground(COL6[2][1]);
+       txtC6_22.setBackground(COL6[2][2]);
+       txtC6_23.setBackground(COL6[2][3]);
+       txtC6_31.setBackground(COL6[3][1]);
+       txtC6_32.setBackground(COL6[3][2]);
+       txtC6_33.setBackground(COL6[3][3]);
+    }
+    
+    public void ColoresOFFC6(){
+       txtC6_11.setBackground(Blanco);
+       txtC6_12.setBackground(Blanco);
+       txtC6_13.setBackground(Blanco);
+       txtC6_21.setBackground(Blanco);
+       txtC6_22.setBackground(Blanco);
+       txtC6_23.setBackground(Blanco);
+       txtC6_31.setBackground(Blanco);
+       txtC6_32.setBackground(Blanco);
+       txtC6_33.setBackground(Blanco);
+    }
+    
+    void ColoresON(){
+        ColoresOnC1();
+        ColoresOnC2();
+        ColoresOnC3();
+        ColoresOnC4();
+        ColoresOnC5();
+        ColoresOnC6();
+    }
+    
+    void ColoresOFF(){
+        ColoresOFFC1();
+        ColoresOFFC2();
+        ColoresOFFC3();
+        ColoresOFFC4();
+        ColoresOFFC5();
+        ColoresOFFC6();
+    }
+    
+    //Movimientos
+    
+    public void rotDerC5() {
+    // Guardar los valores originales antes de realizar la rotación
+    t = C5[1][3];
+    C5[1][3] = C5[3][3];
+    C5[3][3] = C5[3][1];
+    C5[3][1] = C5[1][1];
+    C5[1][1] = t;
 
-        // Rotación de los bordes
-        t = C6[1][2];
-        C6[1][2] = C6[2][1];
-        C6[2][1] = C6[3][2];
-        C6[3][2] = C6[2][3];
-        C6[2][3] = t;
-}
+    t = C5[2][3];
+    C5[2][3] = C5[3][2];
+    C5[3][2] = C5[2][1];
+    C5[2][1] = C5[1][2];
+    C5[1][2] = t;
+    }
     
     public void rotIzqC5() {
         t = C5[1][1];
@@ -58,6 +243,21 @@ public class FormCubo extends javax.swing.JFrame {
         C5[3][2] = C5[2][3];
         C5[2][3] = t;
         }
+    
+    public void rotDerC6() {
+        // Rotación de las esquinas
+        t = C6[1][3];
+        C6[1][3] = C6[1][1];
+        C6[1][1] = C6[3][1];
+        C6[3][1] = C6[3][3];
+        C6[3][3] = t;
+        
+        t = C6[1][2];
+        C6[1][2] = C6[2][1];
+        C6[2][1] = C6[3][2];
+        C6[3][2] = C6[2][3];
+        C6[2][3] = t;
+}
     
     public void rotIzqC6(){        
         t = C6[1][1];
@@ -81,21 +281,10 @@ public class FormCubo extends javax.swing.JFrame {
         C3[i][1] = C4[i][1];
         C4[i][1] = t;
         }
-        
-        rotIzqC5();
-        
-//        t = C1[2][1];
-//        C1[2][1] = C2[2][1];
-//        C2[2][1] = C3[2][1];
-//        C3[2][1] = C4[2][1];
-//        C4[2][1] = t;
-//        
-//        t = C1[3][1];
-//        C1[3][1] = C2[3][1];
-//        C2[3][1] = C3[3][1];
-//        C3[3][1] = C4[3][1];
-//        C4[3][1] = t;
-        etiquetasOn();
+        A1Col();
+        rotDerC5();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
     public void lineA2Up(){
@@ -106,35 +295,24 @@ public class FormCubo extends javax.swing.JFrame {
         C3[i][2]=C4[i][2];
         C4[i][2]=t;
         }
-        
-//        t=C1[2][2];
-//        C1[2][2]=C2[2][2];
-//        C2[2][2]=C3[2][2];
-//        C3[2][2]=C4[2][2];
-//        C4[2][2]=t;
-//        
-//        t=C1[3][2];
-//        C1[3][2]=C2[3][2];
-//        C2[3][2]=C3[3][2];
-//        C3[3][2]=C4[3][2];
-//        C4[3][2]=t;
-        etiquetasOn();
+        A2Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
-    public void lineA3Up(){        
-        t = C6[1][1];
-        C6[1][3] = C6[1][1];
-        C6[1][1] = C6[3][1];
-        C6[3][1] = C6[3][3];
-        C6[3][3] = t;
+    public void lineA3Up(){
+        for(int i=1; i<=3;i++){
+        t=C1[i][3];
+        C1[i][3]=C2[i][3];
+        C2[i][3]=C3[i][3];
+        C3[i][3]=C4[i][3];
+        C4[i][3]=t;
+        }
         
-        t = C6[1][2];
-        C6[1][2] = C6[2][1];
-        C6[2][1] = C6[3][2];
-        C6[3][2] = C6[2][3];
-        C6[2][3] = t;
-        etiquetasOn();
+        A3Col();
         rotDerC6();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
     public void lineB1Dwn(){
@@ -145,39 +323,23 @@ public class FormCubo extends javax.swing.JFrame {
         C2[k][1] = C1[k][1];
         C1[k][1] = t;
         }
-//        t = C4[2][1];
-//        C4[2][1] = C3[2][1];
-//        C3[2][1] = C2[2][1];
-//        C2[2][1] = C1[2][1];
-//        C1[2][1] = t;
-//        
-//        t = C4[1][1];
-//        C4[1][1] = C3[1][1];
-//        C3[1][1] = C2[1][1];
-//        C2[1][1] = C1[1][1];
-//        C1[1][1] = t;
-        etiquetasOn();
+        B1Col();
+        rotIzqC5();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
     public void lineB2Dwn(){
-        t = C4[3][2];
-        C4[3][2] = C3[3][2];
-        C3[3][2] = C2[3][2];
-        C2[3][2] = C1[3][2];
-        C1[3][2] = t;
-        
-        t = C4[2][2];
-        C4[2][2] = C3[2][2];
-        C3[2][2] = C2[2][2];
-        C2[2][2] = C1[2][2];
-        C1[2][2] = t;
-        
-        t = C4[1][2];
-        C4[1][2] = C3[1][2];
-        C3[1][2] = C2[1][2];
-        C2[1][2] = C1[1][2];
-        C1[1][2] = t;
+        for(int i=1; i<=3;i++){
+        t = C4[i][2];
+        C4[i][2] = C3[i][2];
+        C3[i][2] = C2[i][2];
+        C2[i][2] = C1[i][2];
+        C1[i][2] = t;}
+        B2Col();
         etiquetasOn();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
     public void lineB3Dwn(){
@@ -188,26 +350,83 @@ public class FormCubo extends javax.swing.JFrame {
             C2[k][3] = C1[k][3];
             C1[k][3] = t;
         }
-        
-//        t = C4[2][3];
-//        C4[2][3] = C3[2][3];
-//        C3[2][3] = C2[2][3];
-//        C2[2][3] = C1[2][3];
-//        C1[2][3] = t;
-//        
-//        t = C4[1][3];
-//        C4[1][3] = C3[1][3];
-//        C3[1][3] = C2[1][3];
-//        C2[1][3] = C1[1][3];
-//        C1[1][3] = t;
+        B3Col();
         rotIzqC6();
-        etiquetasOn();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+        
         
     }
     
+    //Asignar color a las etiquetas
+    
+    public void A1Col(){
+        Color t2;
+        for(int i=1; i<=3;i++){
+        t2=COL1[i][1];
+        COL1[i][1]=COL2[i][1];
+        COL2[i][1]=COL3[i][1];
+        COL3[i][1]=COL4[i][1];
+        COL4[i][1]=t2;
+        }
+    }
+    
+    public void A2Col(){
+        Color t2;
+        for(int i=1; i<=3;i++){
+        t2=COL1[i][2];
+        COL1[i][2]=COL2[i][2];
+        COL2[i][2]=COL3[i][2];
+        COL3[i][2]=COL4[i][2];
+        COL4[i][2]=t2;
+        }
+    }
+    
+    public void A3Col(){
+        Color t3;
+        for(int i=1; i<=3;i++){
+        t3=COL1[i][3];
+        COL1[i][3]=COL2[i][3];
+        COL2[i][3]=COL3[i][3];
+        COL3[i][3]=COL4[i][3];
+        COL4[i][3]=t3;
+        }
+    }
+    
+    public void B1Col(){
+    for(int k=0; k<=3; k++){
+    Color t = COL4[k][1];
+    COL4[k][1] = COL3[k][1];
+    COL3[k][1] = COL2[k][1];
+    COL2[k][1] = COL1[k][1];
+    COL1[k][1] = t;
+        }
+    }
+    
+    public void B2Col(){
+    for(int k=0; k<=3; k++){
+    Color t = COL4[k][2];
+    COL4[k][2] = COL3[k][2];
+    COL3[k][2] = COL2[k][2];
+    COL2[k][2] = COL1[k][2];
+    COL1[k][2] = t;
+        }
+    }
+    
+    public void B3Col(){
+    for(int k=0; k<=3; k++){
+    Color t = COL4[k][3];
+    COL4[k][3] = COL3[k][3];
+    COL3[k][3] = COL2[k][3];
+    COL2[k][3] = COL1[k][3];
+    COL1[k][3] = t;
+        }
+    }
+    
     /**
-     * Creates new form FormCubo
+     * Creates new form FormCubo, Segmentos de etiquetas
      */
+    
     public FormCubo() {
         initComponents();
     }
@@ -442,6 +661,7 @@ public class FormCubo extends javax.swing.JFrame {
         btn_B2 = new javax.swing.JButton();
         btn_B3 = new javax.swing.JButton();
         btn_etiquetasOn = new javax.swing.JButton();
+        btn_Colores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1344,19 +1564,29 @@ public class FormCubo extends javax.swing.JFrame {
         });
         jPanel7.add(btn_B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 30, 20));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 340, 490));
-
         btn_etiquetasOn.setText("Etiquetas ON/OF");
         btn_etiquetasOn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_etiquetasOnActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_etiquetasOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, -1, -1));
+        jPanel7.add(btn_etiquetasOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+
+        btn_Colores.setText("Colores");
+        btn_Colores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ColoresActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, -1));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 340, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Inicio de Texto y botones
+    
     private void txtC1_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtC1_11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtC1_11ActionPerformed
@@ -1428,15 +1658,6 @@ public class FormCubo extends javax.swing.JFrame {
     private void txtC2_33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtC2_33ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtC2_33ActionPerformed
-
-    void etiquetasOn(){
-        etiquetasOn1();
-        etiquetasOn2();
-        etiquetasOn3();
-        etiquetasOn4();
-        etiquetasOn5();
-        etiquetasOn6();
-    }
     
     private void btn_etiquetasOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_etiquetasOnActionPerformed
         etiquetas();
@@ -1586,6 +1807,8 @@ public class FormCubo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtC6_33ActionPerformed
 
+    //Accion de cada uno de los botones
+    
     private void btn_A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_A3ActionPerformed
         lineA3Up();
     }//GEN-LAST:event_btn_A3ActionPerformed
@@ -1609,7 +1832,18 @@ public class FormCubo extends javax.swing.JFrame {
     private void btn_B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_B1ActionPerformed
         lineB1Dwn();
     }//GEN-LAST:event_btn_B1ActionPerformed
-  
+    
+    //Llamadas a la accion de las etiquetas y colores
+    
+    void etiquetasOn(){
+        etiquetasOn1();
+        etiquetasOn2();
+        etiquetasOn3();
+        etiquetasOn4();
+        etiquetasOn5();
+        etiquetasOn6();
+    }
+    
     void etiquetasOf(){
         etiquetasOf1();
         etiquetasOf2();
@@ -1618,6 +1852,10 @@ public class FormCubo extends javax.swing.JFrame {
         etiquetasOf5();
         etiquetasOf6();
     }
+    
+    private void btn_ColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ColoresActionPerformed
+        Colores();
+    }//GEN-LAST:event_btn_ColoresActionPerformed
         
     void etiquetas(){
         contadorClicks += 1;
@@ -1626,6 +1864,15 @@ public class FormCubo extends javax.swing.JFrame {
             etiquetasOn();
         else
             etiquetasOf();
+    }
+    
+    void Colores(){
+        contadorClicksColores ++;
+        if(contadorClicksColores > 1) {contadorClicks = 0;}
+        if(contadorClicksColores==1){
+            ColoresON();}
+        else{
+            ColoresOFF();}
     }
     
     /**
@@ -1670,6 +1917,7 @@ public class FormCubo extends javax.swing.JFrame {
     private javax.swing.JButton btn_B1;
     private javax.swing.JButton btn_B2;
     private javax.swing.JButton btn_B3;
+    private javax.swing.JButton btn_Colores;
     private javax.swing.JButton btn_etiquetasOn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

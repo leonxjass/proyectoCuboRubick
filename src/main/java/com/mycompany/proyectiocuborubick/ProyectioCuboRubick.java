@@ -78,7 +78,7 @@ public class ProyectioCuboRubick {
     }
     
     public static void rotDerC6(){
-        t = C6[1][1];
+        t = C6[1][3];
         C6[1][3] = C6[1][1];
         C6[1][1] = C6[3][1];
         C6[3][1] = C6[3][3];
