@@ -229,6 +229,11 @@ public class ProyectioCuboRubick {
         rotIzqC6();
     }
     
+    public static void LineD1(){
+        t = C6[1][3];
+        
+    }
+    
     public static void main(String[] args) {
 //       System.out.println("\t A1 A2 A3\n");
 //       imprimeCubo();

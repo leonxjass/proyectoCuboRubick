@@ -1578,7 +1578,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_ColoresActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, -1));
+        jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 340, 540));
 
