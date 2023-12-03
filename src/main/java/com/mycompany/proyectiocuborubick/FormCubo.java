@@ -485,13 +485,23 @@ public class FormCubo extends javax.swing.JFrame {
         if(contadorClicksColores == 1) ColoresON();
     }
     
+    public void RD1(){
+        int t;
+        for(int i=0;i<3;i++){
+        t= C6[1][1];
+        C6[1][1] = C1[3][1];
+        C1[3][1] = C5[3][3];
+        C5[3][3] = C3[1][3];
+        C3[1][3] = t;
+        }
+    }
+    
+    public void RD2(){}
+    public void RD3(){}
+    
     public void RI1(){}
     public void RI2(){}
     public void RI3(){}
-    
-    public void RD1(){}
-    public void RD2(){}
-    public void RD3(){}
     
     //Asignar color a las etiquetas
     
@@ -636,13 +646,24 @@ public class FormCubo extends javax.swing.JFrame {
         }
     }
     
+    public void RD1Col(){
+        Color t;
+        
+        for(int i=0; i<3; i++){
+            t= COL6[1][i];
+            COL6[1][i] = COL1[3][i];
+            COL1[3][i] = COL5[3][i];
+            COL5[3][i] = COL3[1][i];
+            COL3[1][i] = t;
+        }
+    }
+    
+    public void RD2Col(){}
+    public void RD3Col(){}
+    
     public void RI1Col(){}
     public void RI2Col(){}
     public void RI3Col(){}
-    
-    public void RD1Col(){}
-    public void RD2Col(){}
-    public void RD3Col(){}
     
     //Movimientos de columnas de color
     
@@ -927,6 +948,12 @@ public class FormCubo extends javax.swing.JFrame {
         btn_I1 = new javax.swing.JButton();
         btn_I2 = new javax.swing.JButton();
         btn_I3 = new javax.swing.JButton();
+        btn_RD1 = new javax.swing.JButton();
+        btn_RD2 = new javax.swing.JButton();
+        btn_RD3 = new javax.swing.JButton();
+        btn_RI1 = new javax.swing.JButton();
+        btn_RI2 = new javax.swing.JButton();
+        btn_RI3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1905,6 +1932,66 @@ public class FormCubo extends javax.swing.JFrame {
         });
         jPanel7.add(btn_I3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 30, 20));
 
+        btn_RD1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RD1.setText("RD1");
+        btn_RD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RD1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 30, 20));
+
+        btn_RD2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RD2.setText("RD1");
+        btn_RD2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RD2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 30, 20));
+
+        btn_RD3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RD3.setText("RD2");
+        btn_RD3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RD3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RD3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 30, 20));
+
+        btn_RI1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RI1.setText("RI1");
+        btn_RI1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RI1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RI1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 30, 20));
+
+        btn_RI2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RI2.setText("RI2");
+        btn_RI2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RI2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RI2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 30, 20));
+
+        btn_RI3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_RI3.setText("RI3");
+        btn_RI3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_RI3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RI3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_RI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 30, 20));
+
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 510, 540));
 
         pack();
@@ -2205,6 +2292,30 @@ public class FormCubo extends javax.swing.JFrame {
     private void btn_I3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_I3ActionPerformed
         I3();
     }//GEN-LAST:event_btn_I3ActionPerformed
+
+    private void btn_RD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RD1ActionPerformed
+        RD1();
+    }//GEN-LAST:event_btn_RD1ActionPerformed
+
+    private void btn_RD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RD2ActionPerformed
+        RD2();
+    }//GEN-LAST:event_btn_RD2ActionPerformed
+
+    private void btn_RD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RD3ActionPerformed
+        RD3();
+    }//GEN-LAST:event_btn_RD3ActionPerformed
+
+    private void btn_RI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_RI1ActionPerformed
+
+    private void btn_RI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_RI2ActionPerformed
+
+    private void btn_RI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_RI3ActionPerformed
         
     void etiquetas(){
         contadorClicks += 1;
@@ -2273,6 +2384,12 @@ public class FormCubo extends javax.swing.JFrame {
     private javax.swing.JButton btn_I1;
     private javax.swing.JButton btn_I2;
     private javax.swing.JButton btn_I3;
+    private javax.swing.JButton btn_RD1;
+    private javax.swing.JButton btn_RD2;
+    private javax.swing.JButton btn_RD3;
+    private javax.swing.JButton btn_RI1;
+    private javax.swing.JButton btn_RI2;
+    private javax.swing.JButton btn_RI3;
     private javax.swing.JButton btn_etiquetasOn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
