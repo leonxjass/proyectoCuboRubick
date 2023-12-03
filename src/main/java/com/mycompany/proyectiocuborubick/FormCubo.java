@@ -16,6 +16,7 @@ package com.mycompany.proyectiocuborubick;
 
 import java.awt.Color;
 
+
 /**
  *
  * @author leonj
@@ -458,12 +459,12 @@ public class FormCubo extends javax.swing.JFrame {
     
     public void I2(){
         int t;
-        for(int j=0; j<3; j++){
-            t= C6[2][1];
-            C6[2][1]= C4[2][3];
-            C4[2][3]= C5[2][1];
-            C5[2][1]= C2[2][1];
-            C2[2][1]= t;
+        for(int j=0;j<=3;j++){
+            t= C6[2][j];
+            C6[2][j]= C4[2][j];
+            C4[2][j]= C5[2][j];
+            C5[2][j]= C2[2][j];
+            C2[2][j]= t;
         }
         I2Col();
         if(contadorClicks == 1) etiquetasOn();
@@ -481,23 +482,90 @@ public class FormCubo extends javax.swing.JFrame {
         }
         rotIzqC(C3);
         RotIzqCCol(COL3);
+        I3Col();
         if(contadorClicks == 1) etiquetasOn();
         if(contadorClicksColores == 1) ColoresON();
     }
     
     public void RD1(){
         int t;
-        for(int i=0;i<3;i++){
+        
         t= C6[1][1];
         C6[1][1] = C1[3][1];
         C1[3][1] = C5[3][3];
         C5[3][3] = C3[1][3];
         C3[1][3] = t;
-        }
+
+        t= C6[2][1];
+        C6[2][1] = C1[3][2];
+        C1[3][2] = C5[2][3];
+        C5[2][3] = C3[1][2];
+        C3[1][2] = t;
+
+        t= C6[3][1];
+        C6[3][1] = C1[3][3];
+        C1[3][3] = C5[1][3];
+        C5[1][3] = C3[1][1];
+        C3[1][1] = t;
+        
+        rotDerC(C2);
+        RotDerCCol(COL2);
+        RD1Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
     
-    public void RD2(){}
-    public void RD3(){}
+    public void RD2(){
+        int t;
+        t= C6[1][2];
+        C6[1][2] = C1[2][1];
+        C1[2][1] = C5[3][2];
+        C5[3][2] = C3[2][3];
+        C3[2][3] = t;
+
+        t= C6[2][2];
+        C6[2][2] = C1[2][2];
+        C1[2][2] = C5[2][2];
+        C5[2][2] = C3[2][2];
+        C3[2][2] = t;
+
+        t= C6[3][2];
+        C6[3][2] = C1[2][3];
+        C1[2][3] = C5[1][2];
+        C5[1][2] = C3[2][1];
+        C3[2][1] = t;
+        
+        RD2Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void RD3(){
+        int t;
+        t 	 = C6[1][3];
+        C6[1][3] = C1[1][1];
+        C1[1][1] = C5[3][1];
+        C5[3][1] = C3[3][3];
+        C3[3][3] = t;
+
+        t = C6[2][3];
+        C6[2][3] = C1[1][2];
+        C1[1][2] = C5[2][1];
+        C5[2][1] = C3[3][2];
+        C3[3][2] = t;
+
+        t = C6[3][3];
+        C6[3][3] = C1[1][3];
+        C1[1][3] = C5[1][1];
+        C5[1][1] = C3[3][1];
+        C3[3][1] = t;
+
+        rotIzqC(C4);
+        RotIzqCCol(COL4);
+        RD3Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
     
     public void RI1(){}
     public void RI2(){}
@@ -626,12 +694,12 @@ public class FormCubo extends javax.swing.JFrame {
     public void I2Col(){
         Color t;
         
-        for(int o=0; 0<3;o++){
-            t= COL6[2][o];
-            COL6[2][o]= COL4[2][o];
-            COL4[2][o]= COL5[2][o];
-            COL5[2][o]= COL2[2][o];
-            COL2[2][o]= t;
+        for(int i=1;i<=3;i++){
+            t= COL6[2][i];
+            COL6[2][i]= COL4[2][i];
+            COL4[2][i]= COL5[2][i];
+            COL5[2][i]= COL2[2][i];
+            COL2[2][i]= t;
         }
     }
     
@@ -649,17 +717,69 @@ public class FormCubo extends javax.swing.JFrame {
     public void RD1Col(){
         Color t;
         
-        for(int i=0; i<3; i++){
-            t= COL6[1][i];
-            COL6[1][i] = COL1[3][i];
-            COL1[3][i] = COL5[3][i];
-            COL5[3][i] = COL3[1][i];
-            COL3[1][i] = t;
-        }
+        t= COL6[1][1];
+        COL6[1][1] = COL1[3][1];
+        COL1[3][1] = COL5[3][3];
+        COL5[3][3] = COL3[1][3];
+        COL3[1][3] = t;
+
+        t= COL6[2][1];
+        COL6[2][1] = COL1[3][2];
+        COL1[3][2] = COL5[2][3];
+        COL5[2][3] = COL3[1][2];
+        COL3[1][2] = t;
+
+        t= COL6[3][1];
+        COL6[3][1] = COL1[3][3];
+        COL1[3][3] = COL5[1][3];
+        COL5[1][3] = COL3[1][1];
+        COL3[1][1] = t;
+        
     }
     
-    public void RD2Col(){}
-    public void RD3Col(){}
+    public void RD2Col(){
+        Color t;
+        
+        t = COL6[1][2];
+        COL6[1][2] = COL1[2][1];
+        COL1[2][1] = COL5[3][2];
+        COL5[3][2] = COL3[2][3];
+        COL3[2][3] = t;
+
+        t = COL6[2][2];
+        COL6[2][2] = COL1[2][2];
+        COL1[2][2] = COL5[2][2];
+        COL5[2][2] = COL3[2][2];
+        COL3[2][2] = t;
+
+        t = COL6[3][2];
+        COL6[3][2] = COL1[2][3];
+        COL1[2][3] = COL5[1][2];
+        COL5[1][2] = COL3[2][1];
+        COL3[2][1] = t;
+        
+    }
+    
+    public void RD3Col(){
+        Color t;
+        t = COL6[1][3];
+        COL6[1][3] = COL1[1][1];
+        COL1[1][1] = COL5[3][1];
+        COL5[3][1] = COL3[3][3];
+        COL3[3][3] = t;
+
+        t = COL6[2][3];
+        COL6[2][3] = COL1[1][2];
+        COL1[1][2] = COL5[2][1];
+        COL5[2][1] = COL3[3][2];
+        COL3[3][2] = t;
+
+        t = COL6[3][3];
+        COL6[3][3] = COL1[1][3];
+        COL1[1][3] = COL5[1][1];
+        COL5[1][1] = COL3[3][1];
+        COL3[3][1] = t;
+    }
     
     public void RI1Col(){}
     public void RI2Col(){}
@@ -1943,7 +2063,7 @@ public class FormCubo extends javax.swing.JFrame {
         jPanel7.add(btn_RD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 30, 20));
 
         btn_RD2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btn_RD2.setText("RD1");
+        btn_RD2.setText("RD2");
         btn_RD2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         btn_RD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1953,7 +2073,7 @@ public class FormCubo extends javax.swing.JFrame {
         jPanel7.add(btn_RD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 30, 20));
 
         btn_RD3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btn_RD3.setText("RD2");
+        btn_RD3.setText("RD3");
         btn_RD3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         btn_RD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1970,7 +2090,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_RI1ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_RI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 30, 20));
+        jPanel7.add(btn_RI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 30, 20));
 
         btn_RI2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_RI2.setText("RI2");
@@ -1990,7 +2110,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_RI3ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_RI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 30, 20));
+        jPanel7.add(btn_RI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 30, 20));
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 510, 540));
 
@@ -2306,15 +2426,15 @@ public class FormCubo extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RD3ActionPerformed
 
     private void btn_RI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI1ActionPerformed
-        // TODO add your handling code here:
+        RI1();
     }//GEN-LAST:event_btn_RI1ActionPerformed
 
     private void btn_RI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI2ActionPerformed
-        // TODO add your handling code here:
+        RI2();
     }//GEN-LAST:event_btn_RI2ActionPerformed
 
     private void btn_RI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RI3ActionPerformed
-        // TODO add your handling code here:
+        RI3();
     }//GEN-LAST:event_btn_RI3ActionPerformed
         
     void etiquetas(){

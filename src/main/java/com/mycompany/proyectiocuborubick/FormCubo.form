@@ -1682,7 +1682,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="RD1"/>
+            <Property name="text" type="java.lang.String" value="RD2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="0"/>
@@ -1703,7 +1703,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="RD2"/>
+            <Property name="text" type="java.lang.String" value="RD3"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="0"/>
@@ -1736,7 +1736,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="120" width="30" height="20"/>
+              <AbsoluteConstraints x="170" y="120" width="30" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1778,7 +1778,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="120" width="30" height="20"/>
+              <AbsoluteConstraints x="110" y="120" width="30" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

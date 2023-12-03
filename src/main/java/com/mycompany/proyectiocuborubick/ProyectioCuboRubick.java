@@ -243,7 +243,18 @@ public class ProyectioCuboRubick {
     public static void LineI3(){}
     
     public static void LineRD1(){}
-    public static void LineRD2(){}
+    
+    public static void LineRD2(){
+        int t;
+        for(int i=0; i<3;i++){
+            t= C6[1][2];
+            C6[1][2] = C1[2][1];
+            C1[2][1] = C5[3][2];
+            C5[3][2] = C3[2][3];
+            C3[2][3] = t;
+        }
+    }
+    
     public static void LineRD3(){}
     
     public static void LineRI1(){}
