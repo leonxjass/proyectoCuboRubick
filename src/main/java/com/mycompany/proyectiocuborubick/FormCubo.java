@@ -441,8 +441,57 @@ public class FormCubo extends javax.swing.JFrame {
     }
     
     public void I1(){
-        
+        int t;
+        for(int i=1;i<=3;i++) {
+            t= C6[1][i];
+            C6[1][i]= C4[3][i];
+            C4[3][i]= C5[1][i];
+            C5[1][i]= C2[1][i];
+            C2[1][i]= t;
+        }
+        rotDerC(C1);
+        RotDerCCol(COL1);
+        I1Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
     }
+    
+    public void I2(){
+        int t;
+        for(int j=0; j<3; j++){
+            t= C6[2][1];
+            C6[2][1]= C4[2][3];
+            C4[2][3]= C5[2][1];
+            C5[2][1]= C2[2][1];
+            C2[2][1]= t;
+        }
+        I2Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void I3(){
+        int t;
+        for(int i=1;i<=3;i++) {
+            t       = C6[3][i];
+            C6[3][i]= C4[1][i];
+            C4[1][i]= C5[3][i];
+            C5[3][i]= C2[3][i];
+            C2[3][i]= t;
+        }
+        rotIzqC(C3);
+        RotIzqCCol(COL3);
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void RI1(){}
+    public void RI2(){}
+    public void RI3(){}
+    
+    public void RD1(){}
+    public void RD2(){}
+    public void RD3(){}
     
     //Asignar color a las etiquetas
     
@@ -552,6 +601,48 @@ public class FormCubo extends javax.swing.JFrame {
             COL6[3][i]= t;
         }
     }
+    
+    public void I1Col(){
+        Color t;
+        for(int i=1;i<=3;i++) {
+            t= COL6[1][i];
+            COL6[1][i]= COL4[3][i];
+            COL4[3][i]= COL5[1][i];
+            COL5[1][i]= COL2[1][i];
+            COL2[1][i]= t;
+        }
+    }
+    
+    public void I2Col(){
+        Color t;
+        
+        for(int o=0; 0<3;o++){
+            t= COL6[2][o];
+            COL6[2][o]= COL4[2][o];
+            COL4[2][o]= COL5[2][o];
+            COL5[2][o]= COL2[2][o];
+            COL2[2][o]= t;
+        }
+    }
+    
+    public void I3Col(){
+        Color t;
+        for(int i=1;i<=3;i++) {
+            t= COL6[3][i];
+            COL6[3][i]= COL4[1][i];
+            COL4[1][i]= COL5[3][i];
+            COL5[3][i]= COL2[3][i];
+            COL2[3][i]= t;
+        }
+    }
+    
+    public void RI1Col(){}
+    public void RI2Col(){}
+    public void RI3Col(){}
+    
+    public void RD1Col(){}
+    public void RD2Col(){}
+    public void RD3Col(){}
     
     //Movimientos de columnas de color
     
@@ -833,6 +924,9 @@ public class FormCubo extends javax.swing.JFrame {
         btn_D1 = new javax.swing.JButton();
         btn_D2 = new javax.swing.JButton();
         btn_D3 = new javax.swing.JButton();
+        btn_I1 = new javax.swing.JButton();
+        btn_I2 = new javax.swing.JButton();
+        btn_I3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -953,7 +1047,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtC1_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtC1_23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -976,7 +1070,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC1_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 100, 100));
+        jPanel7.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 100, 100));
 
         txtC2_11.setEditable(false);
         txtC2_11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1094,7 +1188,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtC2_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtC2_23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1117,7 +1211,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC2_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 100, -1));
+        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 100, -1));
 
         txtC3_11.setEditable(false);
         txtC3_11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1233,7 +1327,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtC3_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtC3_23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1256,7 +1350,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC3_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+        jPanel7.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         txtC5_11.setEditable(false);
         txtC5_11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1395,7 +1489,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC5_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 110));
+        jPanel7.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 110));
 
         txtC4_11.setEditable(false);
         txtC4_11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1511,7 +1605,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtC4_23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtC4_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1534,7 +1628,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC4_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 110, -1));
+        jPanel7.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 110, -1));
 
         txtC6_11.setEditable(false);
         txtC6_11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1673,7 +1767,7 @@ public class FormCubo extends javax.swing.JFrame {
                         .addComponent(txtC6_33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel7.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 100, -1));
+        jPanel7.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 100, -1));
 
         btn_A1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_A1.setText("A1");
@@ -1683,7 +1777,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_A1ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 30, 20));
+        jPanel7.add(btn_A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 30, 20));
 
         btn_A2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_A2.setText("A2");
@@ -1693,7 +1787,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_A2ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 30, 20));
+        jPanel7.add(btn_A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 30, 20));
 
         btn_A3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_A3.setText("A3");
@@ -1703,7 +1797,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_A3ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 30, 20));
+        jPanel7.add(btn_A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 30, 20));
 
         btn_B1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_B1.setText("B1");
@@ -1713,7 +1807,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_B1ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 30, 20));
+        jPanel7.add(btn_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 30, 20));
 
         btn_B2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_B2.setText("B2");
@@ -1723,7 +1817,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_B2ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 30, 20));
+        jPanel7.add(btn_B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 30, 20));
 
         btn_B3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_B3.setText("B3");
@@ -1733,7 +1827,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_B3ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 30, 20));
+        jPanel7.add(btn_B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 30, 20));
 
         btn_etiquetasOn.setText("Etiquetas ON/OF");
         btn_etiquetasOn.addActionListener(new java.awt.event.ActionListener() {
@@ -1741,7 +1835,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_etiquetasOnActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_etiquetasOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+        jPanel7.add(btn_etiquetasOn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 110, -1));
 
         btn_Colores.setText("Colores");
         btn_Colores.addActionListener(new java.awt.event.ActionListener() {
@@ -1749,7 +1843,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_ColoresActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
+        jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 110, -1));
 
         btn_D1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_D1.setText("D1");
@@ -1759,7 +1853,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_D1ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 30, 20));
+        jPanel7.add(btn_D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 30, 20));
 
         btn_D2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_D2.setText("D2");
@@ -1769,7 +1863,7 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_D2ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 30, 20));
+        jPanel7.add(btn_D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 30, 20));
 
         btn_D3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btn_D3.setText("D3");
@@ -1779,9 +1873,39 @@ public class FormCubo extends javax.swing.JFrame {
                 btn_D3ActionPerformed(evt);
             }
         });
-        jPanel7.add(btn_D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 30, 20));
+        jPanel7.add(btn_D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 30, 20));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 390, 540));
+        btn_I1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_I1.setText("I1");
+        btn_I1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_I1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_I1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_I1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 30, 20));
+
+        btn_I2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_I2.setText("I2");
+        btn_I2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_I2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_I2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_I2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 30, 20));
+
+        btn_I3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_I3.setText("I3");
+        btn_I3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_I3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_I3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_I3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 30, 20));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 510, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2069,6 +2193,18 @@ public class FormCubo extends javax.swing.JFrame {
     private void btn_D3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_D3ActionPerformed
         D3();
     }//GEN-LAST:event_btn_D3ActionPerformed
+
+    private void btn_I1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_I1ActionPerformed
+        I1();
+    }//GEN-LAST:event_btn_I1ActionPerformed
+
+    private void btn_I2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_I2ActionPerformed
+        I2();
+    }//GEN-LAST:event_btn_I2ActionPerformed
+
+    private void btn_I3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_I3ActionPerformed
+        I3();
+    }//GEN-LAST:event_btn_I3ActionPerformed
         
     void etiquetas(){
         contadorClicks += 1;
@@ -2134,6 +2270,9 @@ public class FormCubo extends javax.swing.JFrame {
     private javax.swing.JButton btn_D1;
     private javax.swing.JButton btn_D2;
     private javax.swing.JButton btn_D3;
+    private javax.swing.JButton btn_I1;
+    private javax.swing.JButton btn_I2;
+    private javax.swing.JButton btn_I3;
     private javax.swing.JButton btn_etiquetasOn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
