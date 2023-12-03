@@ -213,6 +213,42 @@ public class FormCubo extends javax.swing.JFrame {
         ColoresOFFC6();
     }
     
+    //Rotaciones absolutas
+    
+    public void rotIzqC(int C[][]) {
+        int t;
+        
+        t= C[1][3];
+        C[1][3]= C[3][3];
+        C[3][3]= C[3][1];
+        C[3][1]= C[1][1];
+        C[1][1]= t;
+        
+        t= C[1][2];
+        C[1][2]= C[2][3];
+        C[2][3]= C[3][2];
+        C[3][2]= C[2][1];
+        C[2][1]= t;
+    }
+    
+    public void rotDerC(int C[][]) {
+        int t;
+        
+        //Movimiento rotación a la derecha de las esquinas
+        t      = C[1][3];
+        C[1][3]= C[1][1];
+        C[1][1]= C[3][1];
+        C[3][1]= C[3][3];
+        C[3][3]= t;
+        
+        //Movimiento rotación a la derecha de los centros
+        t      = C[1][2];
+        C[1][2]= C[2][1];
+        C[2][1]= C[3][2];
+        C[3][2]= C[2][3];
+        C[2][3]= t;
+    }
+    
     //Movimientos
     
     public void rotDerC5() {
@@ -353,8 +389,58 @@ public class FormCubo extends javax.swing.JFrame {
         B3Col();
         rotIzqC6();
         if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();    
+    }
+    
+    public void D1(){
+        int t;
+        for(int i=1;i<=3;i++) {
+            t= C2[1][i];
+            C2[1][i]= C5[1][i];
+            C5[1][i]= C4[3][i];
+            C4[3][i]= C6[1][i];
+            C6[1][i]= t;
+        }
+        rotIzqC(C1);
+        RotIzqCCol(COL1);
+        D1Col();
+        if(contadorClicks == 1) etiquetasOn();
         if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void D2(){
+        int t;
+        for(int k=0; k<3;k++){
+        t= C2[2][k];
+        C2[2][k]= C5[2][k];
+        C5[2][k]= C4[2][k];
+        C4[2][k]= C6[2][k];
+        C6[2][k]= t;
+        }
         
+        D2Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void D3(){
+        int t;
+        for(int i=1;i<=3;i++) {
+            t= C2[3][i];
+            C2[3][i]= C5[3][i];
+            C5[3][i]= C4[1][i];
+            C4[1][i]= C6[3][i];
+            C6[3][i]= t;
+        }
+        
+        rotDerC(C3);
+        RotDerCCol(COL3);
+        D3Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void I1(){
         
     }
     
@@ -421,6 +507,88 @@ public class FormCubo extends javax.swing.JFrame {
     COL2[k][3] = COL1[k][3];
     COL1[k][3] = t;
         }
+    }
+    
+    public void D1Col() {
+        Color t;
+        for(int i=1;i<=3;i++) {
+            t       = COL2[1][i];
+            COL2[1][i]= COL5[1][i];
+            COL5[1][i]= COL4[3][i];
+            COL4[3][i]= COL6[1][i];
+            COL6[1][i]= t;
+        }
+    }
+    
+    public void D2Col() {
+        Color t;
+  
+        t= COL2[2][1];
+        COL2[2][1]= COL5[2][1];
+        COL5[2][1]= COL4[2][3];
+        COL4[2][3]= COL6[2][1];
+        COL6[2][1]= t;
+        
+        t= COL2[2][2];
+        COL2[2][2]= COL5[2][2];
+        COL5[2][2]= COL4[2][2];
+        COL4[2][2]= COL6[2][2];
+        COL6[2][2]= t;
+        
+        t= COL2[2][3];
+        COL2[2][3]= COL5[2][3];
+        COL5[2][3]= COL4[2][1];
+        COL4[2][1]= COL6[2][3];
+        COL6[2][3]= t;
+    }
+    
+    public void D3Col(){
+        Color t;
+        for(int i=1;i<=3;i++) {
+            t= COL2[3][i];
+            COL2[3][i]= COL5[3][i];
+            COL5[3][i]= COL4[1][i];
+            COL4[1][i]= COL6[3][i];
+            COL6[3][i]= t;
+        }
+    }
+    
+    //Movimientos de columnas de color
+    
+    public void RotDerCCol(Color COL[][]) {
+        Color t;
+        
+        //Movimiento rotación a la derecha de las esquinas
+        t= COL[1][3];
+        COL[1][3]= COL[1][1];
+        COL[1][1]= COL[3][1];
+        COL[3][1]= COL[3][3];
+        COL[3][3]= t;
+        
+        //Movimiento rotación a la derecha de los centros
+        t        = COL[1][2];
+        COL[1][2]= COL[2][1];
+        COL[2][1]= COL[3][2];
+        COL[3][2]= COL[2][3];
+        COL[2][3]= t;
+    }
+    
+    public void RotIzqCCol(Color COL[][]) {
+        Color t;
+        
+        //Movimiento rotación a la izquierda de las esquinas
+        t= COL[1][3];
+        COL[1][3]= COL[3][3];
+        COL[3][3]= COL[3][1];
+        COL[3][1]= COL[1][1];
+        COL[1][1]= t;
+        
+        //Movimiento rotación a la izquierda de los centros
+        t= COL[1][2];
+        COL[1][2]= COL[2][3];
+        COL[2][3]= COL[3][2];
+        COL[3][2]= COL[2][1];
+        COL[2][1]= t;
     }
     
     /**
@@ -663,6 +831,8 @@ public class FormCubo extends javax.swing.JFrame {
         btn_etiquetasOn = new javax.swing.JButton();
         btn_Colores = new javax.swing.JButton();
         btn_D1 = new javax.swing.JButton();
+        btn_D2 = new javax.swing.JButton();
+        btn_D3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1591,6 +1761,26 @@ public class FormCubo extends javax.swing.JFrame {
         });
         jPanel7.add(btn_D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 30, 20));
 
+        btn_D2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_D2.setText("D2");
+        btn_D2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_D2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_D2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 30, 20));
+
+        btn_D3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_D3.setText("D3");
+        btn_D3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_D3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_D3ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 30, 20));
+
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 390, 540));
 
         pack();
@@ -1869,8 +2059,16 @@ public class FormCubo extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ColoresActionPerformed
 
     private void btn_D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_D1ActionPerformed
-        // TODO add your handling code here:
+        D1();
     }//GEN-LAST:event_btn_D1ActionPerformed
+
+    private void btn_D2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_D2ActionPerformed
+        D2();
+    }//GEN-LAST:event_btn_D2ActionPerformed
+
+    private void btn_D3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_D3ActionPerformed
+        D3();
+    }//GEN-LAST:event_btn_D3ActionPerformed
         
     void etiquetas(){
         contadorClicks += 1;
@@ -1934,6 +2132,8 @@ public class FormCubo extends javax.swing.JFrame {
     private javax.swing.JButton btn_B3;
     private javax.swing.JButton btn_Colores;
     private javax.swing.JButton btn_D1;
+    private javax.swing.JButton btn_D2;
+    private javax.swing.JButton btn_D3;
     private javax.swing.JButton btn_etiquetasOn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

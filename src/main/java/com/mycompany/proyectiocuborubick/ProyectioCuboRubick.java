@@ -230,9 +230,25 @@ public class ProyectioCuboRubick {
     }
     
     public static void LineD1(){
-        t = C6[1][3];
+        
         
     }
+    
+    public static void LineD2(){}
+    
+    public static void LineD3(){}
+    
+    public static void LineI1(){}
+    public static void LineI2(){}
+    public static void LineI3(){}
+    
+    public static void LineRD1(){}
+    public static void LineRD2(){}
+    public static void LineRD3(){}
+    
+    public static void LineRI1(){}
+    public static void LineRI2(){}
+    public static void LineRI3(){}
     
     public static void main(String[] args) {
 //       System.out.println("\t A1 A2 A3\n");
