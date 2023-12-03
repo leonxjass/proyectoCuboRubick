@@ -567,9 +567,84 @@ public class FormCubo extends javax.swing.JFrame {
         if(contadorClicksColores == 1) ColoresON();
     }
     
-    public void RI1(){}
-    public void RI2(){}
-    public void RI3(){}
+    public void RI1(){
+        int t;
+        t = C5[1][3];
+        C5[1][3] = C1[3][3];
+        C1[3][3] = C6[3][1];
+        C6[3][1] = C3[1][1];
+        C3[1][1] = t;
+
+        t = C5[2][3];
+        C5[2][3] = C1[3][2];
+        C1[3][2] = C6[2][1];
+        C6[2][1] = C3[1][2];
+        C3[1][2] = t;
+
+        t = C5[3][3];
+        C5[3][3] = C1[3][1];
+        C1[3][1] = C6[1][1];
+        C6[1][1] = C3[1][3];
+        C3[1][3] = t;
+
+        rotIzqC(C2);
+        RotIzqCCol(COL2);
+        RI1Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+   
+    public void RI2(){
+        int t;
+        t = C5[1][2];
+        C5[1][2] = C1[2][3];
+        C1[2][3] = C6[3][2];
+        C6[3][2] = C3[2][1];
+        C3[2][1] = t;
+
+        t = C5[2][2];
+        C5[2][2] = C1[2][2];
+        C1[2][2] = C6[2][2];
+        C6[2][2] = C3[2][2];
+        C3[2][2] = t;
+
+        t = C5[3][2];
+        C5[3][2] = C1[2][1];
+        C1[2][1] = C6[1][2];
+        C6[1][2] = C3[2][3];
+        C3[2][3] = t;
+
+        RI2Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
+    
+    public void RI3(){
+        int t;
+        t = C5[1][1];
+        C5[1][1] = C1[1][3];
+        C1[1][3] = C6[3][3];
+        C6[3][3] = C3[3][1];
+        C3[3][1] = t;
+
+        t = C5[2][1];
+        C5[2][1] = C1[1][2];
+        C1[1][2] = C6[2][3];
+        C6[2][3] = C3[3][2];
+        C3[3][2] = t;
+
+        t = C5[3][1];
+        C5[3][1] = C1[1][1];
+        C1[1][1] = C6[1][3];
+        C6[1][3] = C3[3][3];
+        C3[3][3] = t;
+        
+        rotDerC(C4);
+        RotDerCCol(COL4);
+        RI3Col();
+        if(contadorClicks == 1) etiquetasOn();
+        if(contadorClicksColores == 1) ColoresON();
+    }
     
     //Asignar color a las etiquetas
     
@@ -781,9 +856,68 @@ public class FormCubo extends javax.swing.JFrame {
         COL3[3][1] = t;
     }
     
-    public void RI1Col(){}
-    public void RI2Col(){}
-    public void RI3Col(){}
+    public void RI1Col(){
+         Color t;
+        t = COL5[1][3];
+        COL5[1][3] = COL1[3][3];
+        COL1[3][3] = COL6[3][1];
+        COL6[3][1] = COL3[1][1];
+        COL3[1][1] = t;
+
+        t = COL5[2][3];
+        COL5[2][3] = COL1[3][2];
+        COL1[3][2] = COL6[2][1];
+        COL6[2][1] = COL3[1][2];
+        COL3[1][2] = t;
+
+        t = COL5[3][3];
+        COL5[3][3] = COL1[3][1];
+        COL1[3][1] = COL6[1][1];
+        COL6[1][1] = COL3[1][3];
+        COL3[1][3] = t;
+    }
+    
+    public void RI2Col(){
+        Color t;
+        t = COL5[1][2];
+        COL5[1][2] = COL1[2][3];
+        COL1[2][3] = COL6[3][2];
+        COL6[3][2] = COL3[2][1];
+        COL3[2][1] = t;
+
+        t = COL5[2][2];
+        COL5[2][2] = COL1[2][2];
+        COL1[2][2] = COL6[2][2];
+        COL6[2][2] = COL3[2][2];
+        COL3[2][2] = t;
+
+        t = COL5[3][2];
+        COL5[3][2] = COL1[2][1];
+        COL1[2][1] = COL6[1][2];
+        COL6[1][2] = COL3[2][3];
+        COL3[2][3] = t;
+    }
+    
+    public void RI3Col(){
+        Color t;
+        t = COL5[1][1];
+        COL5[1][1] = COL1[1][3];
+        COL1[1][3] = COL6[3][3];
+        COL6[3][3] = COL3[3][1];
+        COL3[3][1] = t;
+
+        t = COL5[2][1];
+        COL5[2][1] = COL1[1][2];
+        COL1[1][2] = COL6[2][3];
+        COL6[2][3] = COL3[3][2];
+        COL3[3][2] = t;
+
+        t = COL5[3][1];
+        COL5[3][1] = COL1[1][1];
+        COL1[1][1] = COL6[1][3];
+        COL6[1][3] = COL3[3][3];
+        COL3[3][3] = t;
+    }
     
     //Movimientos de columnas de color
     
