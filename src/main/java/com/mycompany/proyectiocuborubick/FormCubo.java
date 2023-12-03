@@ -662,6 +662,7 @@ public class FormCubo extends javax.swing.JFrame {
         btn_B3 = new javax.swing.JButton();
         btn_etiquetasOn = new javax.swing.JButton();
         btn_Colores = new javax.swing.JButton();
+        btn_D1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1580,7 +1581,17 @@ public class FormCubo extends javax.swing.JFrame {
         });
         jPanel7.add(btn_Colores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 340, 540));
+        btn_D1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btn_D1.setText("D1");
+        btn_D1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        btn_D1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_D1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 30, 20));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 390, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1856,6 +1867,10 @@ public class FormCubo extends javax.swing.JFrame {
     private void btn_ColoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ColoresActionPerformed
         Colores();
     }//GEN-LAST:event_btn_ColoresActionPerformed
+
+    private void btn_D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_D1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_D1ActionPerformed
         
     void etiquetas(){
         contadorClicks += 1;
@@ -1918,6 +1933,7 @@ public class FormCubo extends javax.swing.JFrame {
     private javax.swing.JButton btn_B2;
     private javax.swing.JButton btn_B3;
     private javax.swing.JButton btn_Colores;
+    private javax.swing.JButton btn_D1;
     private javax.swing.JButton btn_etiquetasOn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
